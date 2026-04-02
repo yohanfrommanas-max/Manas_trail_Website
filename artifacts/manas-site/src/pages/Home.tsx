@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import phoneIconImg from "@assets/9c15a158-e1c7-4231-a824-f62db9cb9c59_1775147772073.jpeg";
+import phoneImg from "@assets/9c15a158-e1c7-4231-a824-f62db9cb9c59_1775148260518.JPG";
 import gradientLogo from "@assets/72ae9c3d-9546-44dc-8a9e-bdbd8aefe9ca_1775147772052.jpeg";
 import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
 import screenHome from "@assets/35f44a07-44f9-47d9-a59a-c7c7d2adab6b_1775147332341.jpeg";
@@ -20,6 +20,13 @@ const pillarColors = [
   "from-sky-100/60 to-blue-50/40 border-sky-200/40",
   "from-violet-100/60 to-purple-50/40 border-violet-200/40",
   "from-pink-100/50 to-fuchsia-50/40 border-pink-200/40",
+];
+
+const credColors = [
+  "from-emerald-50/60 to-teal-50/40 border-emerald-200/30",
+  "from-sky-50/60 to-cyan-50/40 border-sky-200/30",
+  "from-violet-50/60 to-indigo-50/40 border-violet-200/30",
+  "from-amber-50/60 to-orange-50/40 border-amber-200/30",
 ];
 
 const pillars = [
@@ -115,13 +122,13 @@ export default function Home() {
             className="text-[17px] leading-[1.7] text-foreground/45 max-w-[480px] font-[300]"
           >
             The first platform that treats your cognitive health like a fitness
-            programme — with daily workouts, measurable progress, and a system
+            programme. Daily workouts, measurable progress, and a system
             that grows with you.
           </motion.p>
         </div>
       </section>
 
-      {/* App Screenshots — three phones */}
+      {/* App Screenshots */}
       <section className="px-6 pb-32">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -183,7 +190,7 @@ export default function Home() {
               Attention spans are shrinking. Independent thinking is eroding.
               Memory is outsourced to devices. Most wellness apps tell you to
               breathe and journal. That is not enough. Manas is built to
-              actually reverse cognitive decline — scientifically grounded,
+              actually reverse cognitive decline. Scientifically grounded,
               beautifully designed, and built for the long term.
             </p>
           </motion.div>
@@ -229,7 +236,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Product Showcase — phone on desk + text */}
+      {/* Product Showcase */}
       <section className="px-6 py-28 border-t border-foreground/[0.06]">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -238,12 +245,13 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             custom={0}
             variants={fade}
-            className="relative overflow-hidden rounded-3xl aspect-square max-w-[480px]"
+            className="max-w-[480px]"
           >
             <img
-              src={phoneIconImg}
+              src={phoneImg}
               alt="Manas on iPhone home screen"
-              className="w-full h-full object-cover object-[60%_40%]"
+              className="w-full rounded-2xl"
+              style={{ background: "#c2c9b8" }}
             />
           </motion.div>
           <motion.div
@@ -260,7 +268,7 @@ export default function Home() {
               <span className="text-foreground/30">For ages 15 to 45.</span>
             </h2>
             <p className="text-[16px] leading-[1.8] text-foreground/45 font-[300] max-w-[420px]">
-              Manas lives on your phone, right where you need it. Daily cognitive workouts that fit into your routine — designed to be opened, not ignored.
+              Manas lives on your phone, right where you need it. Daily cognitive workouts that fit into your routine. Designed to be opened, not ignored.
             </p>
           </motion.div>
         </div>
@@ -297,7 +305,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-80px" }}
                 custom={i}
                 variants={fade}
-                className="rounded-2xl bg-card border border-foreground/[0.05] p-10"
+                className={`rounded-2xl bg-gradient-to-br ${credColors[i]} border p-10`}
               >
                 <span className="text-[12px] text-foreground/20 mb-6 block font-mono">
                   {item.num}
