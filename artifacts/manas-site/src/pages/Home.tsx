@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import phoneImg from "@assets/9c15a158-e1c7-4231-a824-f62db9cb9c59_1775148260518.JPG";
+import phoneImg from "@assets/Screenshot_2026-04-02_at_10.24.41_pm_1775148924611.png";
 import gradientLogo from "@assets/72ae9c3d-9546-44dc-8a9e-bdbd8aefe9ca_1775147772052.jpeg";
 import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
 import screenHome from "@assets/35f44a07-44f9-47d9-a59a-c7c7d2adab6b_1775147332341.jpeg";
@@ -66,7 +66,7 @@ const credibility = [
   {
     num: "04",
     title: "Built by Experts",
-    desc: "All 12 cognitive games are in active development with a leading product development studio. This is a functioning platform.",
+    desc: "All 12 cognitive games are in active development with a leading product development studio. Built to ship, not to demo.",
   },
 ];
 
@@ -119,7 +119,7 @@ export default function Home() {
             animate="visible"
             custom={2}
             variants={fade}
-            className="text-[17px] leading-[1.7] text-foreground/45 max-w-[480px] font-[300]"
+            className="text-[18px] leading-[1.7] text-foreground/50 max-w-[480px] font-[400]"
           >
             The first platform that treats your cognitive health like a fitness
             programme. Daily workouts, measurable progress, and a system
@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* App Screenshots */}
-      <section className="px-6 pb-32">
+      <section className="px-6 pb-32 pt-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ export default function Home() {
             variants={fade}
             className="flex flex-col justify-end"
           >
-            <p className="text-[16px] leading-[1.8] text-foreground/45 font-[300]">
+            <p className="text-[17px] leading-[1.8] text-foreground/50 font-[400]">
               Attention spans are shrinking. Independent thinking is eroding.
               Memory is outsourced to devices. Most wellness apps tell you to
               breathe and journal. That is not enough. Manas is built to
@@ -227,7 +227,7 @@ export default function Home() {
                 <h3 className="text-[22px] font-[500] tracking-[-0.01em] mb-3">
                   {p.title}
                 </h3>
-                <p className="text-[15px] leading-[1.7] text-foreground/50 font-[300]">
+                <p className="text-[16px] leading-[1.7] text-foreground/50 font-[400]">
                   {p.desc}
                 </p>
               </motion.div>
@@ -251,7 +251,6 @@ export default function Home() {
               src={phoneImg}
               alt="Manas on iPhone home screen"
               className="w-full rounded-2xl"
-              style={{ background: "#c2c9b8" }}
             />
           </motion.div>
           <motion.div
@@ -265,9 +264,9 @@ export default function Home() {
             <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-[300] leading-[1.15] tracking-[-0.02em] mb-6">
               The gym for your mind.
               <br />
-              <span className="text-foreground/30">For ages 15 to 45.</span>
+              <span className="text-foreground/30">For ages 15 to 65.</span>
             </h2>
-            <p className="text-[16px] leading-[1.8] text-foreground/45 font-[300] max-w-[420px]">
+            <p className="text-[17px] leading-[1.8] text-foreground/50 font-[400] max-w-[420px]">
               Manas lives on your phone, right where you need it. Daily cognitive workouts that fit into your routine. Designed to be opened, not ignored.
             </p>
           </motion.div>
@@ -313,7 +312,7 @@ export default function Home() {
                 <h3 className="text-[18px] font-[500] tracking-[-0.01em] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[14px] leading-[1.7] text-foreground/45 font-[300]">
+                <p className="text-[15px] leading-[1.7] text-foreground/50 font-[400]">
                   {item.desc}
                 </p>
               </motion.div>
@@ -351,7 +350,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             custom={2}
             variants={fade}
-            className="text-[17px] text-foreground/40 font-[300] mb-12"
+            className="text-[18px] text-foreground/45 font-[400] mb-12"
           >
             If this resonates, let us talk.
           </motion.p>
