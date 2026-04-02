@@ -352,7 +352,7 @@ export default function Home() {
             variants={fade}
             className="text-[18px] text-foreground/45 font-[400] mb-12"
           >
-            If this resonates, let us talk.
+            We would love to hear from you.
           </motion.p>
           <motion.a
             initial="hidden"
