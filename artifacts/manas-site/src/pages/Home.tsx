@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import phoneIconImg from "@assets/9c15a158-e1c7-4231-a824-f62db9cb9c59_1775146573203.JPG";
-import iconImg from "@assets/IMG_4640_1775146664190.png";
-import logoImg from "@assets/5df2a8f9-876b-4b14-8cdd-d3c1d33d046f_1775146664182.jpeg";
+import phoneIconImg from "@assets/9c15a158-e1c7-4231-a824-f62db9cb9c59_1775147772073.jpeg";
+import gradientLogo from "@assets/72ae9c3d-9546-44dc-8a9e-bdbd8aefe9ca_1775147772052.jpeg";
+import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
 import screenHome from "@assets/35f44a07-44f9-47d9-a59a-c7c7d2adab6b_1775147332341.jpeg";
 import screenExplore from "@assets/f3f71ccf-c0e9-4e4d-b1bd-90b9ea86bc53_1775147332321.jpeg";
 import screenSleep from "@assets/1c76c2b0-bd1d-46b8-b535-6e966475926b_1775147426224.jpeg";
@@ -15,6 +15,12 @@ const fade = {
     transition: { duration: 0.7, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 };
+
+const pillarColors = [
+  "from-sky-100/60 to-blue-50/40 border-sky-200/40",
+  "from-violet-100/60 to-purple-50/40 border-violet-200/40",
+  "from-pink-100/50 to-fuchsia-50/40 border-pink-200/40",
+];
 
 const pillars = [
   {
@@ -47,7 +53,7 @@ const credibility = [
   },
   {
     num: "03",
-    title: "A Team of Seven",
+    title: "Founding Team of Seven",
     desc: "Cross-functional founding team spanning product, cognitive wellness, technology, and commercial development.",
   },
   {
@@ -62,8 +68,11 @@ export default function Home() {
     <main className="bg-background text-foreground min-h-screen">
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-foreground/[0.04]">
-        <div className="max-w-[1200px] mx-auto px-6 h-14 flex items-center justify-between">
-          <img src={logoImg} alt="Manas" className="h-6" />
+        <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <img src={logoMark} alt="Manas" className="h-9 w-9 object-contain" />
+            <span className="text-[17px] font-[400] tracking-[-0.01em]">manas</span>
+          </div>
           <a
             href="mailto:sam@joinmanas.com"
             className="text-[13px] text-foreground/40 hover:text-foreground transition-colors"
@@ -203,15 +212,15 @@ export default function Home() {
                 viewport={{ once: true, margin: "-80px" }}
                 custom={i}
                 variants={fade}
-                className="rounded-2xl bg-card border border-foreground/[0.05] p-10 flex flex-col"
+                className={`rounded-2xl bg-gradient-to-br ${pillarColors[i]} border p-10 flex flex-col`}
               >
-                <span className="text-[12px] text-foreground/20 mb-8 font-mono">
+                <span className="text-[12px] text-foreground/25 mb-8 font-mono">
                   {p.num}
                 </span>
                 <h3 className="text-[22px] font-[500] tracking-[-0.01em] mb-3">
                   {p.title}
                 </h3>
-                <p className="text-[15px] leading-[1.7] text-foreground/45 font-[300]">
+                <p className="text-[15px] leading-[1.7] text-foreground/50 font-[300]">
                   {p.desc}
                 </p>
               </motion.div>
@@ -220,7 +229,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Product Showcase — phone on desk + icon */}
+      {/* Product Showcase — phone on desk + text */}
       <section className="px-6 py-28 border-t border-foreground/[0.06]">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -229,11 +238,12 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             custom={0}
             variants={fade}
+            className="relative overflow-hidden rounded-3xl aspect-square max-w-[480px]"
           >
             <img
               src={phoneIconImg}
               alt="Manas on iPhone home screen"
-              className="w-full max-w-[440px] rounded-3xl shadow-xl"
+              className="w-full h-full object-cover object-[60%_40%]"
             />
           </motion.div>
           <motion.div
@@ -244,7 +254,6 @@ export default function Home() {
             variants={fade}
             className="flex flex-col"
           >
-            <img src={iconImg} alt="" className="w-16 h-16 object-contain mb-8" />
             <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-[300] leading-[1.15] tracking-[-0.02em] mb-6">
               The gym for your mind.
               <br />
@@ -308,11 +317,21 @@ export default function Home() {
       {/* CTA */}
       <section className="px-6 py-32 border-t border-foreground/[0.06]">
         <div className="max-w-[1200px] mx-auto flex flex-col items-center text-center">
-          <motion.h2
+          <motion.img
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             custom={0}
+            variants={fade}
+            src={logoMark}
+            alt="Manas"
+            className="w-14 h-14 object-contain mb-10"
+          />
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            custom={1}
             variants={fade}
             className="text-[clamp(2rem,4.5vw,3.5rem)] font-[300] leading-[1.1] tracking-[-0.03em] max-w-[650px] mb-6"
           >
@@ -322,7 +341,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            custom={1}
+            custom={2}
             variants={fade}
             className="text-[17px] text-foreground/40 font-[300] mb-12"
           >
@@ -332,7 +351,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            custom={2}
+            custom={3}
             variants={fade}
             href="mailto:sam@joinmanas.com"
             className="inline-flex items-center gap-3 text-[15px] font-[400] text-white bg-[hsl(258,60%,55%)] rounded-full px-8 py-4 hover:bg-[hsl(258,60%,48%)] transition-all duration-300 shadow-lg shadow-[hsl(258,60%,55%)]/20"
@@ -347,7 +366,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="px-6 py-8 border-t border-foreground/[0.06]">
         <div className="max-w-[1200px] mx-auto flex justify-between items-center">
-          <img src={logoImg} alt="Manas" className="h-5 opacity-40" />
+          <div className="flex items-center gap-2">
+            <img src={logoMark} alt="Manas" className="h-6 w-6 object-contain opacity-50" />
+            <span className="text-[13px] text-foreground/30 font-[300]">manas</span>
+          </div>
           <span className="text-[12px] text-foreground/25">
             {new Date().getFullYear()} Manas
           </span>
