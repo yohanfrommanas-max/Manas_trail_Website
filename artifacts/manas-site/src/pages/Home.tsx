@@ -352,7 +352,7 @@ export default function Home() {
             variants={fade}
             className="text-[18px] text-foreground/45 font-[400] mb-12"
           >
-            We would love to hear from you.
+            If you'd like to be a part of the journey, we would love to hear from you.
           </motion.p>
           <motion.a
             initial="hidden"
