@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "WvIK1ffM10LOpZ-eGnHRr"
+uri = "file://artifacts/manas-site/public/hero-bg.png"
+type = "image"
+title = "Meditation with neural patterns"
+
+[[generated]]
+id = "6Piil8Wypj-vWYDOTAgl_"
+uri = "file://artifacts/manas-site/public/app-mockup.png"
+type = "image"
+title = "Manas app mobile mockup"
+
+[[generated]]
+id = "irpIERiduRvdQu6bFo1ai"
+uri = "file://artifacts/manas-site/public/lifestyle-usage.png"
+type = "image"
+title = "Lifestyle mindful app usage"
+
+[[generated]]
+id = "MWENq5SLTpwVAF0eQQJUW"
+uri = "file://artifacts/manas-site/public/neural-bg.png"
+type = "image"
+title = "Abstract neural background"
