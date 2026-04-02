@@ -51,35 +51,35 @@
 }
 
 :root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 98%;
+  --background: 260 20% 98%;
+  --foreground: 260 30% 12%;
 
-  --card: 0 0% 4%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 0 0% 12%;
+  --card: 260 20% 96%;
+  --card-foreground: 260 30% 12%;
+  --card-border: 260 15% 90%;
 
-  --popover: 0 0% 4%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 0 0% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 260 30% 12%;
+  --popover-border: 260 15% 90%;
 
-  --primary: 0 0% 98%;
-  --primary-foreground: 0 0% 4%;
+  --primary: 258 60% 55%;
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 0 0% 10%;
-  --secondary-foreground: 0 0% 80%;
+  --secondary: 260 15% 94%;
+  --secondary-foreground: 260 30% 30%;
 
-  --muted: 0 0% 8%;
-  --muted-foreground: 0 0% 55%;
+  --muted: 260 12% 94%;
+  --muted-foreground: 260 10% 50%;
 
-  --accent: 0 0% 12%;
-  --accent-foreground: 0 0% 98%;
+  --accent: 258 60% 96%;
+  --accent-foreground: 258 60% 40%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 0 0% 12%;
-  --input: 0 0% 15%;
-  --ring: 0 0% 40%;
+  --border: 260 12% 91%;
+  --input: 260 12% 88%;
+  --ring: 258 60% 55%;
 
   --app-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --app-font-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -87,11 +87,11 @@
 
   --radius: 0.75rem;
 
-  --button-outline: rgba(255,255,255, .08);
-  --badge-outline: rgba(255,255,255, .05);
-  --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .03);
-  --elevate-2: rgba(255,255,255, .06);
+  --button-outline: rgba(0,0,0, .06);
+  --badge-outline: rgba(0,0,0, .04);
+  --opaque-button-border-intensity: -6;
+  --elevate-1: rgba(0,0,0, .02);
+  --elevate-2: rgba(0,0,0, .05);
 
   --primary-border: hsl(var(--primary));
   --secondary-border: hsl(var(--secondary));
@@ -101,12 +101,12 @@
 
   --shadow-2xs: none;
   --shadow-xs: none;
-  --shadow-sm: none;
-  --shadow: none;
-  --shadow-md: none;
-  --shadow-lg: none;
-  --shadow-xl: none;
-  --shadow-2xl: none;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.08);
+  --shadow-2xl: 0 24px 64px rgba(0,0,0,0.1);
 }
 
 @layer base {
