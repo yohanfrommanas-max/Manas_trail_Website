@@ -65,7 +65,7 @@ const credibility = [
   },
   {
     num: "04",
-    title: "Built by Experts",
+    title: "Built to a Standard, Not a Deadline",
     desc: "All 12 cognitive games are in active development with a leading product development studio. Built to ship, not to demo.",
   },
 ];
