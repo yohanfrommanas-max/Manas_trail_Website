@@ -119,7 +119,7 @@ export default function Home() {
             animate="visible"
             custom={2}
             variants={fade}
-            className="text-[18px] leading-[1.7] text-foreground/50 max-w-[480px] font-[400]"
+            className="text-[clamp(1.125rem,2.5vw,1.25rem)] leading-[1.7] text-foreground/50 max-w-[480px] font-[400]"
           >
             The first platform that treats your cognitive health like a fitness
             programme. Daily workouts, measurable progress, and a system
@@ -186,7 +186,7 @@ export default function Home() {
             variants={fade}
             className="flex flex-col justify-end"
           >
-            <p className="text-[17px] leading-[1.8] text-foreground/50 font-[400]">
+            <p className="text-[clamp(1.0625rem,2.5vw,1.1875rem)] leading-[1.8] text-foreground/50 font-[400]">
               Attention spans are shrinking. Independent thinking is eroding.
               Memory is outsourced to devices. Most wellness apps tell you to
               breathe and journal. That is not enough. Manas is built to
@@ -227,7 +227,7 @@ export default function Home() {
                 <h3 className="text-[22px] font-[500] tracking-[-0.01em] mb-3">
                   {p.title}
                 </h3>
-                <p className="text-[16px] leading-[1.7] text-foreground/50 font-[400]">
+                <p className="text-[clamp(1rem,2.5vw,1.125rem)] leading-[1.7] text-foreground/50 font-[400]">
                   {p.desc}
                 </p>
               </motion.div>
@@ -266,7 +266,7 @@ export default function Home() {
               <br />
               <span className="text-foreground/30">For ages 15 to 65.</span>
             </h2>
-            <p className="text-[17px] leading-[1.8] text-foreground/50 font-[400] max-w-[420px]">
+            <p className="text-[clamp(1.0625rem,2.5vw,1.1875rem)] leading-[1.8] text-foreground/50 font-[400] max-w-[420px]">
               Manas lives on your phone, right where you need it. Daily cognitive workouts that fit into your routine. Designed to be opened, not ignored.
             </p>
           </motion.div>
@@ -312,7 +312,7 @@ export default function Home() {
                 <h3 className="text-[18px] font-[500] tracking-[-0.01em] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[15px] leading-[1.7] text-foreground/50 font-[400]">
+                <p className="text-[clamp(0.9375rem,2.5vw,1.0625rem)] leading-[1.7] text-foreground/50 font-[400]">
                   {item.desc}
                 </p>
               </motion.div>
@@ -350,7 +350,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             custom={2}
             variants={fade}
-            className="text-[18px] text-foreground/45 font-[400] mb-12"
+            className="text-[clamp(1.125rem,2.5vw,1.25rem)] text-foreground/45 font-[400] mb-12"
           >
             If you'd like to be a part of the journey, we would love to hear from you.
           </motion.p>
