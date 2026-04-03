@@ -60,7 +60,7 @@ const credibility = [
   },
   {
     num: "03",
-    title: "Founding Team of Seven",
+    title: "Built by the Right People",
     desc: "Cross-functional founding team spanning product, cognitive wellness, technology, and commercial development.",
   },
   {
