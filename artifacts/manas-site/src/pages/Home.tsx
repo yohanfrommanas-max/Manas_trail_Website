@@ -81,7 +81,7 @@ export default function Home() {
             <span className="text-[17px] font-[400] tracking-[-0.01em]">manas</span>
           </div>
           <a
-            href="mailto:sam@joinmanas.com"
+            href="mailto:connect@joinmanas.com"
             className="text-[13px] text-foreground/40 hover:text-foreground transition-colors"
             data-testid="link-contact-nav"
           >
@@ -360,11 +360,11 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             custom={3}
             variants={fade}
-            href="mailto:sam@joinmanas.com"
+            href="mailto:connect@joinmanas.com"
             className="inline-flex items-center gap-3 text-[15px] font-[400] text-white bg-[hsl(258,60%,55%)] rounded-full px-8 py-4 hover:bg-[hsl(258,60%,48%)] transition-all duration-300 shadow-lg shadow-[hsl(258,60%,55%)]/20"
             data-testid="link-contact-cta"
           >
-            sam@joinmanas.com
+            connect@joinmanas.com
             <ArrowRight className="w-4 h-4" />
           </motion.a>
         </div>
