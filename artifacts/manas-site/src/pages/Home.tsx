@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import phoneImg from "@assets/Screenshot_2026-04-02_at_10.24.41_pm_1775148924611.png";
 import gradientLogo from "@assets/72ae9c3d-9546-44dc-8a9e-bdbd8aefe9ca_1775147772052.jpeg";
 import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
+import manasFullLogo from "@assets/manas_full_logo_white_1776018638027.jpg";
 import screenHome from "@assets/35f44a07-44f9-47d9-a59a-c7c7d2adab6b_1775147332341.jpeg";
 import screenExplore from "@assets/f3f71ccf-c0e9-4e4d-b1bd-90b9ea86bc53_1775147332321.jpeg";
 import screenSleep from "@assets/1c76c2b0-bd1d-46b8-b535-6e966475926b_1775147426224.jpeg";
@@ -82,7 +83,7 @@ export default function Home() {
           </div>
           <a
             href="mailto:connect@joinmanas.com"
-            className="text-[13px] text-foreground/40 hover:text-foreground transition-colors"
+            className="inline-flex items-center text-[13px] font-[400] text-white bg-[hsl(258,60%,55%)] rounded-full px-5 py-2 hover:bg-[hsl(258,60%,48%)] transition-all duration-300 shadow-md shadow-[hsl(258,60%,55%)]/15"
             data-testid="link-contact-nav"
           >
             Get in touch
@@ -330,9 +331,9 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             custom={0}
             variants={fade}
-            src={logoMark}
+            src={manasFullLogo}
             alt="Manas"
-            className="w-14 h-14 object-contain mb-10"
+            className="h-12 object-contain mb-10"
           />
           <motion.h2
             initial="hidden"
