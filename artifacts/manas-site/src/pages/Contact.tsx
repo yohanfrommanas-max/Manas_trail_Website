@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Link } from "wouter";
 import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
+import screenHome from "@assets/35f44a07-44f9-47d9-a59a-c7c7d2adab6b_1775147332341.jpeg";
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -14,17 +15,10 @@ const fade = {
 };
 
 const enquiryTypes = [
-  { key: "investor", label: "Investor", desc: "SAFE round & funding", color: "bg-violet-400" },
-  { key: "corporate", label: "Corporate Wellness", desc: "Pilots & partnerships", color: "bg-emerald-400" },
-  { key: "press", label: "Press & Media", desc: "Coverage & interviews", color: "bg-cyan-400" },
-  { key: "product", label: "Product / General", desc: "Beta access & feedback", color: "bg-amber-400" },
-];
-
-const contactInfo = [
-  { label: "Investment Enquiries", desc: "SAFE round, deck requests, due diligence", color: "bg-violet-400" },
-  { label: "Corporate Wellness", desc: "Pilots, team licences, B2B partnerships", color: "bg-emerald-400" },
-  { label: "Press & Media", desc: "Coverage, interviews, product access", color: "bg-cyan-400" },
-  { label: "Product & General", desc: "Beta access, feedback, anything else", color: "bg-amber-400" },
+  { key: "investor", label: "Investor", desc: "SAFE round & funding" },
+  { key: "corporate", label: "Corporate Wellness", desc: "Pilots & partnerships" },
+  { key: "press", label: "Press & Media", desc: "Coverage & interviews" },
+  { key: "product", label: "Product / General", desc: "Beta access & feedback" },
 ];
 
 const messagePlaceholders: Record<string, string> = {
@@ -101,10 +95,10 @@ export default function Contact() {
   }
 
   const inputClass =
-    "w-full bg-foreground/[0.03] border border-foreground/[0.08] rounded-xl px-4 py-3.5 text-[15px] font-[400] text-foreground placeholder:text-foreground/25 outline-none transition-all duration-200 focus:border-[hsl(258,60%,55%)] focus:ring-2 focus:ring-[hsl(258,60%,55%)]/10";
+    "w-full bg-foreground/[0.03] border border-foreground/[0.12] rounded-xl px-4 py-3.5 text-[15px] font-[400] text-foreground placeholder:text-foreground/35 outline-none transition-all duration-200 focus:border-[hsl(258,60%,55%)] focus:ring-2 focus:ring-[hsl(258,60%,55%)]/10";
   const selectClass =
-    "w-full bg-foreground/[0.03] border border-foreground/[0.08] rounded-xl px-4 py-3.5 text-[15px] font-[400] text-foreground outline-none transition-all duration-200 focus:border-[hsl(258,60%,55%)] focus:ring-2 focus:ring-[hsl(258,60%,55%)]/10 appearance-none cursor-pointer";
-  const labelClass = "block text-[11px] tracking-[0.12em] uppercase text-foreground/30 mb-2 font-[500]";
+    "w-full bg-foreground/[0.03] border border-foreground/[0.12] rounded-xl px-4 py-3.5 text-[15px] font-[400] text-foreground outline-none transition-all duration-200 focus:border-[hsl(258,60%,55%)] focus:ring-2 focus:ring-[hsl(258,60%,55%)]/10 appearance-none cursor-pointer";
+  const labelClass = "block text-[11px] tracking-[0.12em] uppercase text-foreground/50 mb-2 font-[600]";
 
   return (
     <main className="bg-background text-foreground min-h-screen">
@@ -116,7 +110,7 @@ export default function Contact() {
           </Link>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[13px] text-foreground/40 hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-[13px] text-foreground/50 hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back
@@ -125,45 +119,37 @@ export default function Contact() {
       </nav>
 
       <section className="pt-32 pb-24 px-6">
-        <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           <motion.div
             initial="hidden"
             animate="visible"
             custom={0}
             variants={fade}
-            className="lg:sticky lg:top-28"
+            className="flex flex-col items-center lg:items-start"
           >
-            <p className="text-[13px] tracking-[0.2em] uppercase text-foreground/30 mb-6">
+            <p className="text-[13px] tracking-[0.2em] uppercase text-foreground/40 mb-6">
               Get in touch
             </p>
-            <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-[300] leading-[1.1] tracking-[-0.02em] mb-5">
+            <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-[300] leading-[1.1] tracking-[-0.02em] mb-5 text-foreground/90">
               Let's start a{" "}
               <span className="italic text-foreground/40">conversation.</span>
             </h1>
-            <p className="text-[clamp(1rem,2.5vw,1.125rem)] leading-[1.75] text-foreground/45 font-[400] max-w-[380px] mb-12">
+            <p className="text-[clamp(1rem,2.5vw,1.125rem)] leading-[1.75] text-foreground/55 font-[400] max-w-[380px] mb-12">
               Whether you're an investor, a potential partner, a corporate wellness lead, or just curious. We read every message.
             </p>
 
-            <div className="flex flex-col gap-3 mb-12">
-              {contactInfo.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial="hidden"
-                  animate="visible"
-                  custom={i + 1}
-                  variants={fade}
-                  className="flex items-center gap-3.5 p-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.015] hover:border-foreground/[0.1] transition-colors"
-                >
-                  <div className={`w-2 h-2 rounded-full ${item.color} flex-shrink-0`} />
-                  <div>
-                    <div className="text-[14px] font-[500] text-foreground/80">{item.label}</div>
-                    <div className="text-[12px] text-foreground/30">{item.desc}</div>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="w-full max-w-[320px] lg:max-w-[360px]">
+              <motion.img
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                src={screenHome}
+                alt="Manas app interface"
+                className="w-full rounded-[28px] shadow-2xl shadow-foreground/[0.08]"
+              />
             </div>
 
-            <p className="text-[12px] text-foreground/25 tracking-[0.05em] border-t border-foreground/[0.06] pt-5">
+            <p className="text-[12px] text-foreground/35 tracking-[0.05em] mt-10">
               We aim to respond within 48 hours.
             </p>
           </motion.div>
@@ -173,7 +159,7 @@ export default function Contact() {
             animate="visible"
             custom={1}
             variants={fade}
-            className="rounded-2xl border border-foreground/[0.06] bg-foreground/[0.015] p-8 md:p-10 relative overflow-hidden"
+            className="rounded-2xl border border-foreground/[0.08] bg-foreground/[0.02] p-8 md:p-10 relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(258,60%,55%)]/30 to-transparent" />
 
@@ -186,8 +172,8 @@ export default function Contact() {
                 <div className="w-16 h-16 rounded-full bg-emerald-100/60 border border-emerald-200/40 flex items-center justify-center">
                   <Check className="w-7 h-7 text-emerald-600" />
                 </div>
-                <h3 className="text-[24px] font-[300] tracking-[-0.02em]">Message received.</h3>
-                <p className="text-[15px] text-foreground/45 leading-[1.65] max-w-[300px]">
+                <h3 className="text-[24px] font-[300] tracking-[-0.02em] text-foreground/90">Message received.</h3>
+                <p className="text-[15px] text-foreground/55 leading-[1.65] max-w-[300px]">
                   Thank you for reaching out. A member of the Manas team will be in touch within 48 hours.
                 </p>
                 <button
@@ -199,8 +185,8 @@ export default function Contact() {
               </motion.div>
             ) : (
               <div>
-                <h2 className="text-[22px] font-[400] tracking-[-0.02em] mb-1.5">Send us a message</h2>
-                <p className="text-[14px] text-foreground/40 mb-8">Tell us who you are and what's on your mind.</p>
+                <h2 className="text-[22px] font-[400] tracking-[-0.02em] mb-1.5 text-foreground/90">Send us a message</h2>
+                <p className="text-[14px] text-foreground/50 mb-8">Tell us who you are and what's on your mind.</p>
 
                 <div className="grid grid-cols-2 gap-2 mb-7">
                   {enquiryTypes.map((type) => (
@@ -209,12 +195,12 @@ export default function Contact() {
                       onClick={() => setSelectedType(type.key)}
                       className={`text-left p-3.5 rounded-xl border transition-all duration-200 ${
                         selectedType === type.key
-                          ? "border-[hsl(258,60%,55%)] bg-[hsl(258,60%,55%)]/[0.05]"
-                          : "border-foreground/[0.06] bg-foreground/[0.02] hover:border-foreground/[0.12]"
+                          ? "border-[hsl(258,60%,55%)] bg-[hsl(258,60%,55%)]/[0.06]"
+                          : "border-foreground/[0.08] bg-foreground/[0.02] hover:border-foreground/[0.15]"
                       }`}
                     >
-                      <span className="text-[12px] font-[500] text-foreground/70 block mb-0.5">{type.label}</span>
-                      <span className="text-[10px] text-foreground/25">{type.desc}</span>
+                      <span className="text-[12px] font-[600] text-foreground/75 block mb-0.5">{type.label}</span>
+                      <span className="text-[10px] text-foreground/35">{type.desc}</span>
                     </button>
                   ))}
                 </div>
@@ -227,7 +213,7 @@ export default function Contact() {
                         type="text"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                        placeholder="Samuel"
+                        placeholder="Your"
                         required
                         className={inputClass}
                       />
@@ -238,7 +224,7 @@ export default function Contact() {
                         type="text"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
-                        placeholder="Thomas"
+                        placeholder="Name"
                         className={inputClass}
                       />
                     </div>
@@ -288,7 +274,7 @@ export default function Contact() {
                     </select>
                   </div>
 
-                  <div className="h-px bg-foreground/[0.06] my-6" />
+                  <div className="h-px bg-foreground/[0.08] my-6" />
 
                   <div className="mb-4">
                     <label className={labelClass}>Your Message</label>
@@ -300,7 +286,7 @@ export default function Contact() {
                       maxLength={1000}
                       className={`${inputClass} h-28 resize-none leading-[1.6]`}
                     />
-                    <div className={`text-right text-[10px] mt-1 font-mono ${message.length > 900 ? (message.length >= 1000 ? "text-red-400" : "text-amber-400") : "text-foreground/20"}`}>
+                    <div className={`text-right text-[10px] mt-1 font-mono ${message.length > 900 ? (message.length >= 1000 ? "text-red-400" : "text-amber-400") : "text-foreground/30"}`}>
                       {message.length} / 1000
                     </div>
                   </div>
@@ -312,12 +298,12 @@ export default function Contact() {
                       className={`w-[18px] h-[18px] rounded flex-shrink-0 mt-0.5 border flex items-center justify-center transition-all duration-200 ${
                         consent
                           ? "bg-[hsl(258,60%,55%)] border-[hsl(258,60%,55%)]"
-                          : "border-foreground/15 bg-foreground/[0.03]"
+                          : "border-foreground/20 bg-foreground/[0.03]"
                       }`}
                     >
                       {consent && <Check className="w-3 h-3 text-white" />}
                     </button>
-                    <p className="text-[12px] text-foreground/30 leading-[1.6]">
+                    <p className="text-[12px] text-foreground/45 leading-[1.6]">
                       I agree to Manas storing my contact details and using them to respond to this enquiry. We will never share your details with third parties.
                     </p>
                   </div>
