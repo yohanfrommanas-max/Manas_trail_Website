@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { Link } from "wouter";
 import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
-import screenHome from "@assets/35f44a07-44f9-47d9-a59a-c7c7d2adab6b_1775147332341.jpeg";
+import phoneImage from "@assets/image_1776022449079.png";
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -97,7 +97,7 @@ export default function Contact() {
   const inputClass =
     "w-full bg-foreground/[0.03] border border-foreground/[0.12] rounded-xl px-4 py-3.5 text-[15px] font-[400] text-foreground placeholder:text-foreground/35 outline-none transition-all duration-200 focus:border-[hsl(258,60%,55%)] focus:ring-2 focus:ring-[hsl(258,60%,55%)]/10";
   const selectClass =
-    "w-full bg-foreground/[0.03] border border-foreground/[0.12] rounded-xl px-4 py-3.5 text-[15px] font-[400] text-foreground outline-none transition-all duration-200 focus:border-[hsl(258,60%,55%)] focus:ring-2 focus:ring-[hsl(258,60%,55%)]/10 appearance-none cursor-pointer";
+    "w-full bg-foreground/[0.03] border border-foreground/[0.12] rounded-xl px-4 py-3.5 text-[15px] font-[400] text-foreground outline-none transition-all duration-200 focus:border-[hsl(258,60%,55%)] focus:ring-2 focus:ring-[hsl(258,60%,55%)]/10 appearance-none cursor-pointer bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20d%3D%22M1%201l5%205%205-5%22%20stroke%3D%22%236b7280%22%20stroke-width%3D%221.5%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_14px_center] pr-10";
   const labelClass = "block text-[11px] tracking-[0.12em] uppercase text-foreground/50 mb-2 font-[600]";
 
   return (
@@ -143,9 +143,9 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                src={screenHome}
-                alt="Manas app interface"
-                className="w-full rounded-[28px] shadow-2xl shadow-foreground/[0.08]"
+                src={phoneImage}
+                alt="Manas app on iPhone home screen"
+                className="w-full rounded-2xl shadow-2xl shadow-foreground/[0.08]"
               />
             </div>
 
@@ -245,7 +245,7 @@ export default function Contact() {
                   {showOrgFields && (
                     <>
                       <div className="mb-4">
-                        <label className={labelClass}>Organisation</label>
+                        <label className={labelClass}>Organisation <span className="text-foreground/25 normal-case tracking-normal font-[400]">(optional)</span></label>
                         <input
                           type="text"
                           value={organisation}
@@ -255,7 +255,7 @@ export default function Contact() {
                         />
                       </div>
                       <div className="mb-4">
-                        <label className={labelClass}>Your Role</label>
+                        <label className={labelClass}>Your Role <span className="text-foreground/25 normal-case tracking-normal font-[400]">(optional)</span></label>
                         <select value={role} onChange={(e) => setRole(e.target.value)} className={selectClass}>
                           {roleOptions.map((opt) => (
                             <option key={opt.value} value={opt.value}>{opt.label}</option>
