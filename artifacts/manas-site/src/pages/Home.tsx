@@ -331,9 +331,12 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             custom={0}
             variants={fade}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
             src={manasFullLogo}
             alt="Manas"
-            className="h-12 object-contain mb-10"
+            className="h-20 md:h-24 object-contain mb-12 cursor-pointer"
           />
           <motion.h2
             initial="hidden"
