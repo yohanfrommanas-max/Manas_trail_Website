@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get in Touch — Manas</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B0D12;
+    --surface: #13151C;
+    --surface2: #1A1D27;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(167,139,250,0.35);
+    --lav: #A78BFA;
+    --lavd: #7C5FD4;
+    --sage: #6EE7B7;
+    --gold: #F59E0B;
+    --rose: #F87171;
+    --cyan: #22D3EE;
+    --text: #E8E4DC;
+    --sub: #7A8099;
+    --muted: #4A5068;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND ATMOSPHERE ── */
+  .bg-layer {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    overflow: hidden;
+  }
+  .orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(100px); opacity: 0.5;
+  }
+  .orb-1 {
+    width: 600px; height: 600px;
+    top: -200px; right: -100px;
+    background: radial-gradient(circle, rgba(124,95,212,0.18), transparent 70%);
+    animation: driftA 18s ease-in-out infinite alternate;
+  }
+  .orb-2 {
+    width: 400px; height: 400px;
+    bottom: -100px; left: -80px;
+    background: radial-gradient(circle, rgba(34,211,238,0.08), transparent 70%);
+    animation: driftB 24s ease-in-out infinite alternate;
+  }
+  .orb-3 {
+    width: 300px; height: 300px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(167,139,250,0.06), transparent 70%);
+    animation: driftC 30s ease-in-out infinite alternate;
+  }
+  @keyframes driftA { from { transform: translate(0,0); } to { transform: translate(-40px, 60px); } }
+  @keyframes driftB { from { transform: translate(0,0); } to { transform: translate(40px,-50px); } }
+  @keyframes driftC { from { transform: translate(-50%,-50%) scale(1); } to { transform: translate(-50%,-50%) scale(1.3); } }
+
+  /* Grain overlay */
+  .grain {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto;
+    padding: 80px 40px 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) {
+    .page { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px 80px; }
+  }
+
+  /* ── LEFT PANEL ── */
+  .left { position: sticky; top: 80px; }
+
+  .logo-wrap {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 48px;
+  }
+  .logo-mark {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, #A78BFA, #7C5FD4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-mark svg { width: 18px; height: 18px; }
+  .logo-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 16px;
+    color: var(--text); letter-spacing: -0.3px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--lav);
+    margin-bottom: 16px; display: block;
+  }
+
+  .headline {
+    font-family: 'Lora', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 500; color: var(--text);
+    letter-spacing: -1.5px; line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .headline em { color: var(--lav); font-style: italic; }
+
+  .subtext {
+    font-size: 15px; color: var(--sub);
+    line-height: 1.75; margin-bottom: 44px;
+    max-width: 380px;
+  }
+
+  /* Contact types */
+  .contact-types { display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
+  .contact-type {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: border-color 0.2s;
+  }
+  .contact-type:hover { border-color: rgba(167,139,250,0.2); }
+  .ct-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .ct-label {
+    font-size: 13px; font-weight: 500; color: var(--text);
+  }
+  .ct-desc { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+  .response-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.05em;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+
+  /* ── RIGHT PANEL — FORM ── */
+  .form-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-panel::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167,139,250,0.4), transparent);
+  }
+
+  .form-title {
+    font-family: 'Lora', serif;
+    font-size: 22px; font-weight: 500;
+    color: var(--text); letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .form-sub {
+    font-size: 13px; color: var(--sub);
+    margin-bottom: 32px; line-height: 1.6;
+  }
+
+  /* Enquiry type selector */
+  .enquiry-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; margin-bottom: 28px;
+  }
+  .eq-btn {
+    padding: 12px 14px; border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: var(--surface2);
+    cursor: pointer; transition: all 0.18s;
+    text-align: left;
+  }
+  .eq-btn:hover {
+    border-color: rgba(167,139,250,0.3);
+    background: rgba(167,139,250,0.05);
+  }
+  .eq-btn.active {
+    border-color: var(--lav);
+    background: rgba(167,139,250,0.08);
+  }
+  .eq-icon { font-size: 16px; display: block; margin-bottom: 4px; }
+  .eq-label {
+    font-size: 12px; font-weight: 600; color: var(--text);
+    display: block; margin-bottom: 1px;
+  }
+  .eq-desc { font-size: 10px; color: var(--muted); line-height: 1.4; }
+
+  /* Form fields */
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 500px) { .field-row { grid-template-columns: 1fr; } }
+
+  .field { margin-bottom: 16px; }
+  .field-label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 7px;
+  }
+  .field input, .field textarea, .field select {
+    width: 100%;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 13px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none; -webkit-appearance: none;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--muted); }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--lav);
+    box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
+  }
+  .field textarea {
+    height: 110px; resize: none; line-height: 1.6;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A5068' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  .field select option { background: #1A1D27; color: var(--text); }
+
+  /* Organisation field - hidden until needed */
+  .field.org { display: none; }
+  .field.org.show { display: block; }
+
+  /* Divider */
+  .form-divider {
+    height: 1px; background: var(--border);
+    margin: 24px 0;
+  }
+
+  /* Consent */
+  .consent-wrap {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 24px;
+  }
+  .consent-check {
+    width: 18px; height: 18px; flex-shrink: 0;
+    border: 1.5px solid var(--border);
+    border-radius: 5px; background: var(--surface2);
+    cursor: pointer; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .consent-check.checked {
+    background: var(--lav);
+    border-color: var(--lav);
+  }
+  .consent-check.checked::after {
+    content: '✓'; color: var(--bg);
+    font-size: 11px; font-weight: 700;
+  }
+  .consent-text {
+    font-size: 12px; color: var(--muted); line-height: 1.6;
+  }
+  .consent-text a { color: var(--lav); text-decoration: none; }
+
+  /* Submit */
+  .btn-submit {
+    width: 100%; padding: 17px;
+    background: linear-gradient(135deg, var(--lav), var(--lavd));
+    border: none; border-radius: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--bg); cursor: pointer;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 32px rgba(167,139,250,0.25);
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    position: relative; overflow: hidden;
+  }
+  .btn-submit::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 40px rgba(167,139,250,0.35); }
+  .btn-submit:hover::before { opacity: 1; }
+  .btn-submit:active { transform: scale(0.99); }
+
+  /* ── SUCCESS STATE ── */
+  .success-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 16px;
+  }
+  .success-state.show { display: flex; }
+  .form-body.hide { display: none; }
+
+  .success-icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(110,231,183,0.12);
+    border: 1px solid rgba(110,231,183,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .success-title {
+    font-family: 'Lora', serif;
+    font-size: 24px; font-weight: 500;
+    color: var(--text); letter-spacing: -0.5px;
+  }
+  .success-sub { font-size: 14px; color: var(--sub); line-height: 1.65; max-width: 300px; }
+  .success-back {
+    font-size: 13px; color: var(--lav); cursor: pointer;
+    background: none; border: none; font-family: 'DM Sans', sans-serif;
+    margin-top: 8px; text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.12s; }
+  .fade-up:nth-child(3) { animation-delay: 0.18s; }
+  .fade-up:nth-child(4) { animation-delay: 0.24s; }
+  .fade-up:nth-child(5) { animation-delay: 0.30s; }
+
+  /* ── FIELD FOCUS GLOW ── */
+  @keyframes fieldGlow {
+    from { box-shadow: 0 0 0 0 rgba(167,139,250,0.3); }
+    to { box-shadow: 0 0 0 4px rgba(167,139,250,0); }
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    animation: fieldGlow 0.4s ease;
+  }
+
+  /* Character counter */
+  .char-count {
+    text-align: right; font-family: 'DM Mono', monospace;
+    font-size: 9px; color: var(--muted); margin-top: 4px;
+    transition: color 0.2s;
+  }
+  .char-count.warn { color: var(--gold); }
+  .char-count.over { color: var(--rose); }
+</style>
+</head>
+<body>
+
+<div class="bg-layer">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+<div class="grain"></div>
+
+<div class="page">
+
+  <!-- ── LEFT PANEL ── -->
+  <div class="left">
+
+    <div class="logo-wrap fade-up">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3C12 3 6 8 6 13C6 16.3 8.7 19 12 19C15.3 19 18 16.3 18 13C18 8 12 3 12 3Z" fill="white" opacity="0.9"/>
+          <path d="M12 19C12 19 9 17 9 14C9 12.3 10.3 11 12 11C13.7 11 15 12.3 15 14C15 17 12 19 12 19Z" fill="white" opacity="0.45"/>
+        </svg>
+      </div>
+      <span class="logo-name">Manas</span>
+    </div>
+
+    <div class="fade-up">
+      <span class="eyebrow">Get in touch</span>
+      <h1 class="headline">Let's start a<br><em>conversation.</em></h1>
+      <p class="subtext">Whether you're an investor, a potential partner, a corporate wellness lead, or just curious — we'd like to hear from you. We read every message.</p>
+    </div>
+
+    <div class="contact-types fade-up">
+      <div class="contact-type">
+        <div class="ct-dot" style="background:#A78BFA"></div>
+        <div>
+          <div class="ct-label">Investment Enquiries</div>
+          <div class="ct-desc">SAFE round, deck requests, due diligence</div>
+        </div>
+      </div>
+      <div class="contact-type">
+        <div class="ct-dot" style="background:#6EE7B7"></div>
+        <div>
+          <div class="ct-label">Corporate Wellness</div>
+          <div class="ct-desc">Pilots, team licences, B2B partnerships</div>
+        </div>
+      </div>
+      <div class="contact-type">
+        <div class="ct-dot" style="background:#22D3EE"></div>
+        <div>
+          <div class="ct-label">Press & Media</div>
+          <div class="ct-desc">Coverage, interviews, product access</div>
+        </div>
+      </div>
+      <div class="contact-type">
+        <div class="ct-dot" style="background:#F59E0B"></div>
+        <div>
+          <div class="ct-label">Product & General</div>
+          <div class="ct-desc">Beta access, feedback, anything else</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="response-note fade-up">We aim to respond within 48 hours.</p>
+
+  </div>
+
+  <!-- ── RIGHT PANEL — FORM ── -->
+  <div class="form-panel fade-up">
+
+    <!-- Success state -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">✦</div>
+      <div class="success-title">Message received.</div>
+      <p class="success-sub">Thank you for reaching out. A member of the Manas team will be in touch within 48 hours.</p>
+      <button class="success-back" onclick="resetForm()">Send another message</button>
+    </div>
+
+    <!-- Form body -->
+    <div class="form-body" id="formBody">
+      <div class="form-title">Send us a message</div>
+      <p class="form-sub">Tell us who you are and what's on your mind.</p>
+
+      <!-- Enquiry type -->
+      <div class="enquiry-grid" id="enquiryGrid">
+        <button class="eq-btn active" data-type="investor" onclick="selectType(this)">
+          <span class="eq-icon">📈</span>
+          <span class="eq-label">Investor</span>
+          <span class="eq-desc">SAFE round & funding</span>
+        </button>
+        <button class="eq-btn" data-type="corporate" onclick="selectType(this)">
+          <span class="eq-icon">🏢</span>
+          <span class="eq-label">Corporate Wellness</span>
+          <span class="eq-desc">Pilots & partnerships</span>
+        </button>
+        <button class="eq-btn" data-type="press" onclick="selectType(this)">
+          <span class="eq-icon">📰</span>
+          <span class="eq-label">Press & Media</span>
+          <span class="eq-desc">Coverage & interviews</span>
+        </button>
+        <button class="eq-btn" data-type="product" onclick="selectType(this)">
+          <span class="eq-icon">✦</span>
+          <span class="eq-label">Product / General</span>
+          <span class="eq-desc">Beta access & feedback</span>
+        </button>
+      </div>
+
+      <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+        <input type="hidden" id="enquiryType" name="enquiry_type" value="investor">
+
+        <!-- Name row -->
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="firstName">First Name</label>
+            <input type="text" id="firstName" name="first_name" placeholder="Samuel" required autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label class="field-label" for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="last_name" placeholder="Thomas" required autocomplete="family-name">
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label class="field-label" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+
+        <!-- Organisation (shown for investor + corporate) -->
+        <div class="field org" id="orgField">
+          <label class="field-label" for="organisation">Organisation</label>
+          <input type="text" id="organisation" name="organisation" placeholder="Fund or company name">
+        </div>
+
+        <!-- Role (shown for investor) -->
+        <div class="field org" id="roleField">
+          <label class="field-label" for="role">Your Role</label>
+          <select id="role" name="role">
+            <option value="">Select your role</option>
+            <option value="vc">Venture Capital / VC Fund</option>
+            <option value="angel">Angel Investor</option>
+            <option value="family_office">Family Office</option>
+            <option value="corporate_vc">Corporate VC</option>
+            <option value="accelerator">Accelerator / Incubator</option>
+            <option value="other_investor">Other Investor</option>
+            <option value="hr_lead">HR / People Lead</option>
+            <option value="wellness_lead">Wellness Programme Lead</option>
+            <option value="journalist">Journalist / Writer</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- How they heard -->
+        <div class="field">
+          <label class="field-label" for="source">How did you find us?</label>
+          <select id="source" name="source">
+            <option value="">Select one</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="referral">Personal referral</option>
+            <option value="press">Press / media coverage</option>
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="google">Google search</option>
+            <option value="investor_network">Investor network</option>
+            <option value="conference">Event or conference</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Message -->
+        <div class="field">
+          <label class="field-label" for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what you have in mind..." required maxlength="1000" oninput="updateCount(this)"></textarea>
+          <div class="char-count" id="charCount">0 / 1000</div>
+        </div>
+
+        <!-- Consent -->
+        <div class="consent-wrap">
+          <div class="consent-check" id="consentCheck" onclick="toggleConsent()"></div>
+          <p class="consent-text">
+            I agree to Manas storing my contact details and using them to respond to this enquiry.
+            We will never share your details with third parties.
+          </p>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span>Send Message</span>
+          <span>→</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let consentGiven = false;
+  let selectedType = 'investor';
+
+  // ── ENQUIRY TYPE SELECTION ──
+  function selectType(btn) {
+    document.querySelectorAll('.eq-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedType = btn.dataset.type;
+    document.getElementById('enquiryType').value = selectedType;
+
+    const orgField = document.getElementById('orgField');
+    const roleField = document.getElementById('roleField');
+
+    if (selectedType === 'investor' || selectedType === 'corporate') {
+      orgField.classList.add('show');
+      roleField.classList.add('show');
+      // Update placeholder based on type
+      document.getElementById('organisation').placeholder =
+        selectedType === 'investor' ? 'Fund or firm name' : 'Company name';
+    } else {
+      orgField.classList.remove('show');
+      roleField.classList.remove('show');
+    }
+
+    // Update message placeholder
+    const placeholders = {
+      investor: "I'm interested in learning more about Manas's fundraising round...",
+      corporate: "We're exploring cognitive wellness programmes for our team of...",
+      press: "I'm writing about mental wellness technology and would love to...",
+      product: "I'd love to be part of the beta and share feedback on...",
+    };
+    document.getElementById('message').placeholder = placeholders[selectedType];
+  }
+
+  // Init investor view on load
+  selectType(document.querySelector('.eq-btn.active'));
+
+  // ── CONSENT ──
+  function toggleConsent() {
+    consentGiven = !consentGiven;
+    const check = document.getElementById('consentCheck');
+    check.classList.toggle('checked', consentGiven);
+  }
+
+  // ── CHAR COUNT ──
+  function updateCount(el) {
+    const len = el.value.length;
+    const max = parseInt(el.getAttribute('maxlength'));
+    const counter = document.getElementById('charCount');
+    counter.textContent = `${len} / ${max}`;
+    counter.className = 'char-count' + (len > max * 0.9 ? ' warn' : '') + (len >= max ? ' over' : '');
+  }
+
+  // ── SUBMIT ──
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!firstName || !email || !message) {
+      // Shake empty required fields
+      [document.getElementById('firstName'), document.getElementById('email'), document.getElementById('message')].forEach(el => {
+        if (!el.value.trim()) {
+          el.style.borderColor = 'var(--rose)';
+          el.style.animation = 'shake 0.3s ease';
+          setTimeout(() => { el.style.borderColor = ''; el.style.animation = ''; }, 600);
+        }
+      });
+      return;
+    }
+
+    if (!consentGiven) {
+      const check = document.getElementById('consentCheck');
+      check.style.borderColor = 'var(--rose)';
+      setTimeout(() => check.style.borderColor = '', 600);
+      return;
+    }
+
+    // Simulate submission (replace with actual API call / Formspree / EmailJS)
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = '<span>Sending</span><span style="animation:spin 1s linear infinite;display:inline-block">⟳</span>';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      document.getElementById('formBody').classList.add('hide');
+      document.getElementById('successState').classList.add('show');
+    }, 1200);
+  }
+
+  function resetForm() {
+    document.getElementById('contactForm').reset();
+    document.getElementById('formBody').classList.remove('hide');
+    document.getElementById('successState').classList.remove('show');
+    document.getElementById('submitBtn').innerHTML = '<span>Send Message</span><span>→</span>';
+    document.getElementById('submitBtn').disabled = false;
+    consentGiven = false;
+    document.getElementById('consentCheck').classList.remove('checked');
+    document.getElementById('charCount').textContent = '0 / 1000';
+    selectType(document.querySelector('[data-type="investor"]'));
+  }
+
+  // Shake animation
+  const shakeStyle = document.createElement('style');
+  shakeStyle.textContent = `
+    @keyframes shake {
+      0%,100%{transform:translateX(0)}
+      20%{transform:translateX(-6px)}
+      40%{transform:translateX(6px)}
+      60%{transform:translateX(-4px)}
+      80%{transform:translateX(4px)}
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  `;
+  document.head.appendChild(shakeStyle);
+</script>
+</body>
+</html>

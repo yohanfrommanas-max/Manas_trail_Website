@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 import phoneImg from "@assets/Screenshot_2026-04-02_at_10.24.41_pm_1775148924611.png";
 import gradientLogo from "@assets/72ae9c3d-9546-44dc-8a9e-bdbd8aefe9ca_1775147772052.jpeg";
 import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
@@ -81,13 +82,13 @@ export default function Home() {
             <img src={logoMark} alt="Manas" className="h-9 w-9 object-contain" />
             <span className="text-[17px] font-[400] tracking-[-0.01em]">manas</span>
           </div>
-          <a
-            href="mailto:connect@joinmanas.com"
+          <Link
+            href="/contact"
             className="inline-flex items-center text-[13px] font-[400] text-white bg-[hsl(258,60%,55%)] rounded-full px-5 py-2 hover:bg-[hsl(258,60%,48%)] transition-all duration-300 shadow-md shadow-[hsl(258,60%,55%)]/15"
             data-testid="link-contact-nav"
           >
             Get in touch
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -358,19 +359,22 @@ export default function Home() {
           >
             If you'd like to be a part of the journey, we would love to hear from you.
           </motion.p>
-          <motion.a
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             custom={3}
             variants={fade}
-            href="mailto:connect@joinmanas.com"
-            className="inline-flex items-center gap-3 text-[15px] font-[400] text-white bg-[hsl(258,60%,55%)] rounded-full px-8 py-4 hover:bg-[hsl(258,60%,48%)] transition-all duration-300 shadow-lg shadow-[hsl(258,60%,55%)]/20"
-            data-testid="link-contact-cta"
           >
-            connect@joinmanas.com
-            <ArrowRight className="w-4 h-4" />
-          </motion.a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 text-[15px] font-[400] text-white bg-[hsl(258,60%,55%)] rounded-full px-8 py-4 hover:bg-[hsl(258,60%,48%)] transition-all duration-300 shadow-lg shadow-[hsl(258,60%,55%)]/20"
+              data-testid="link-contact-cta"
+            >
+              Get in touch
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
