@@ -82,6 +82,10 @@ export default function Contact() {
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
       const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+      if (!supabaseUrl || !supabaseAnonKey) {
+        throw new Error("Contact form is not configured yet. Please try again later.");
+      }
+
       const res = await fetch(`${supabaseUrl}/functions/v1/contact-form`, {
         method: "POST",
         headers: {
