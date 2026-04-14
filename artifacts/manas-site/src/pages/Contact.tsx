@@ -79,7 +79,13 @@ export default function Contact() {
     setError("");
 
     const EDGE_FUNCTION_URL = "https://dwenjizfjoxzilxysqan.supabase.co/functions/v1/contact-form";
-    const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+
+    if (!ANON_KEY) {
+      setSending(false);
+      setError("Contact form is not configured yet. Please try again later.");
+      return;
+    }
 
     let res: Response;
 
@@ -88,7 +94,7 @@ export default function Contact() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          ...(ANON_KEY ? { "Authorization": `Bearer ${ANON_KEY}` } : {}),
+          "Authorization": `Bearer ${ANON_KEY}`,
         },
         body: JSON.stringify({
           enquiry_type: selectedType,
