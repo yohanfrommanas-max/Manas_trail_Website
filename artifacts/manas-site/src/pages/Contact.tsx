@@ -60,6 +60,7 @@ export default function Contact() {
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -70,15 +71,46 @@ export default function Contact() {
 
   const showOrgFields = selectedType === "investor" || selectedType === "corporate";
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!firstName.trim() || !email.trim() || !message.trim() || !consent) return;
 
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
+    setError("");
+
+    try {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      const res = await fetch(`${supabaseUrl}/functions/v1/contact-form`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${supabaseAnonKey}`,
+        },
+        body: JSON.stringify({
+          enquiry_type: selectedType,
+          first_name: firstName.trim(),
+          last_name: lastName.trim(),
+          email: email.trim(),
+          organisation: organisation.trim(),
+          role,
+          source,
+          message: message.trim(),
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || "Something went wrong. Please try again.");
+      }
+
       setSubmitted(true);
-    }, 1200);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   function resetForm() {
@@ -92,6 +124,7 @@ export default function Contact() {
     setMessage("");
     setConsent(false);
     setSelectedType("investor");
+    setError("");
   }
 
   const inputClass =
@@ -307,6 +340,12 @@ export default function Contact() {
                       I agree to Manas storing my contact details and using them to respond to this enquiry. We will never share your details with third parties.
                     </p>
                   </div>
+
+                  {error && (
+                    <div className="mb-4 rounded-xl bg-red-50 border border-red-200/60 px-4 py-3 text-[13px] text-red-600 leading-[1.5]">
+                      {error}
+                    </div>
+                  )}
 
                   <button
                     type="submit"
