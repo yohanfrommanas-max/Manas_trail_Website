@@ -78,14 +78,12 @@ export default function Contact() {
     setSending(true);
     setError("");
 
-    const EDGE_FUNCTION_URL = "https://dwenjizfjoxzilxysqan.supabase.co/functions/v1/contact-form";
-    const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+    const FALLBACK_URL = "https://dwenjizfjoxzilxysqan.supabase.co";
+    const FALLBACK_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3ZW5qaXpmam94emlseHlzcWFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxODgwMDQsImV4cCI6MjA5MTc2NDAwNH0.iC3HYcRx--ULltMP6e7XoL6xPP1lfxekAizRUbIxGcQ";
 
-    if (!ANON_KEY) {
-      setSending(false);
-      setError("Contact form is not configured yet. Please try again later.");
-      return;
-    }
+    const supabaseUrl = (import.meta.env.VITE_SUPABASE_URL as string | undefined) || FALLBACK_URL;
+    const anonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined) || FALLBACK_ANON_KEY;
+    const EDGE_FUNCTION_URL = `${supabaseUrl}/functions/v1/contact-form`;
 
     let res: Response;
 
@@ -94,7 +92,7 @@ export default function Contact() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${ANON_KEY}`,
+          "Authorization": `Bearer ${anonKey}`,
         },
         body: JSON.stringify({
           enquiry_type: selectedType,
