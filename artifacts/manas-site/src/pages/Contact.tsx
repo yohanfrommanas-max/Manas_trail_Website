@@ -78,19 +78,17 @@ export default function Contact() {
     setSending(true);
     setError("");
 
+    const EDGE_FUNCTION_URL = "https://dwenjizfjoxzilxysqan.supabase.co/functions/v1/contact-form";
+    const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+    let res: Response;
+
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-      if (!supabaseUrl || !supabaseAnonKey) {
-        throw new Error("Contact form is not configured yet. Please try again later.");
-      }
-
-      const res = await fetch(`${supabaseUrl}/functions/v1/contact-form`, {
+      res = await fetch(EDGE_FUNCTION_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${supabaseAnonKey}`,
+          ...(ANON_KEY ? { "Authorization": `Bearer ${ANON_KEY}` } : {}),
         },
         body: JSON.stringify({
           enquiry_type: selectedType,
@@ -103,18 +101,25 @@ export default function Contact() {
           message: message.trim(),
         }),
       });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => null);
-        throw new Error(data?.error || "Something went wrong. Please try again.");
-      }
-
-      setSubmitted(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
-    } finally {
+    } catch {
       setSending(false);
+      setError("Unable to reach the server. Please check your connection and try again.");
+      return;
     }
+
+    if (!res.ok) {
+      let errorMsg = "Something went wrong. Please try again.";
+      try {
+        const data = await res.json();
+        if (data?.error) errorMsg = data.error;
+      } catch {}
+      setSending(false);
+      setError(errorMsg);
+      return;
+    }
+
+    setSending(false);
+    setSubmitted(true);
   }
 
   function resetForm() {
