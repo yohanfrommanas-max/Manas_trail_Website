@@ -151,7 +151,7 @@ export default function Contact() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-foreground/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">
-            <img src={logoMark} alt="Manas" className="h-9 w-9 object-contain" />
+            <img src="https://dwenjizfjoxzilxysqan.supabase.co/storage/v1/object/public/Manas%20Investor%20website%20elements/manas%20logo/Original%20Picture%20Mark.png" alt="Manas" className="h-9 w-9 object-contain" />
             <span className="text-[17px] font-[400] tracking-[-0.01em]">manas</span>
           </Link>
           <Link
