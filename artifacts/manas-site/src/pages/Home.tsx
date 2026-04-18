@@ -4,7 +4,6 @@ import { Link } from "wouter";
 import phoneImg from "@assets/Screenshot_2026-04-02_at_10.24.41_pm_1775148924611.png";
 import gradientLogo from "@assets/72ae9c3d-9546-44dc-8a9e-bdbd8aefe9ca_1775147772052.jpeg";
 import logoMark from "@assets/edd26aed-3bdc-4289-bdf3-b84ec3bcd1c9_1775147772069.jpeg";
-import manasFullLogo from "@assets/manas_full_logo_white_1776018638027.jpg";
 import screenHome from "@assets/35f44a07-44f9-47d9-a59a-c7c7d2adab6b_1775147332341.jpeg";
 import screenExplore from "@assets/f3f71ccf-c0e9-4e4d-b1bd-90b9ea86bc53_1775147332321.jpeg";
 import screenSleep from "@assets/1c76c2b0-bd1d-46b8-b535-6e966475926b_1775147426224.jpeg";
@@ -335,7 +334,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            src={manasFullLogo}
+            src="https://dwenjizfjoxzilxysqan.supabase.co/storage/v1/object/public/Manas%20Investor%20website%20elements/manas%20logo/Original%20Logo.png"
             alt="Manas"
             className="h-20 md:h-24 object-contain mb-12 cursor-pointer"
           />
